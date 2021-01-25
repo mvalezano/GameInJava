@@ -4,10 +4,10 @@ import javax.swing.JFrame;
 
 public class Display
 	{
-		private JFrame frame;
+		public JFrame frame;
 
-		private String title;
-		private int width, height;
+		public String title;
+		public int width, height;
 
 		public Display(String titolo, int larghezza, int altezza)
 			{
@@ -28,7 +28,7 @@ public class Display
 				frame.setResizable(false);
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
-		
+
 			}
 
 	}
