@@ -18,7 +18,7 @@ public class DisplayTest {
 
 //        assertEquals(300, display.frame.getSize().getHeight(), 0.0);
 //        assertEquals(200, display.frame.getSize().getWidth(), 0.0);
-
+//asd
     }
 
 
