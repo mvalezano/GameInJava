@@ -16,7 +16,9 @@ public class Game implements Runnable
 			{
 				this.width = width;
 				this.height = height;
-this.title =title;
+
+				this.title =title;
+			run();
 			}
 
 		private void init()
