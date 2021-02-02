@@ -44,6 +44,7 @@
 //si lavora in game->>tick
 //spiegazione fps per chi non sa
 //regolazione spostamento immagini
+//controllare fps: game.java riga 110->>non riesco a vederlo sulla console!!
 
 
 
