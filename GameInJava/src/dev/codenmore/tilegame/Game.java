@@ -9,6 +9,7 @@ import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.ImageLoader;
 import dev.codenmore.tilegame.gfx.SpriteSheet;
 import dev.codenmore.tilegame.states.GameState;
+import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.State;
 
 public class Game implements Runnable
@@ -26,7 +27,8 @@ public class Game implements Runnable
 
 		//States
 		private State gameState;
-		
+		private State menuState;
+
 		// private BufferedImage testImage; //carica prova.png
 		// private BufferedImage test; // carica spritesheet
 		// private SpriteSheet sheet;
@@ -45,7 +47,8 @@ public class Game implements Runnable
 				Assets.init();
 				
 				gameState= new GameState();
-State.setState(gameState);
+                menuState= new MenuState();
+                State.setState(gameState);
 				// testImage =
 				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\Prova.png");
 				// test =

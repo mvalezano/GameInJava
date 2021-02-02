@@ -54,6 +54,35 @@
 //controllore state serve per gestire i menu del gioco
 //in state
 //spiegazione override
+//
+//
+//video 12
+//entità: qualsiasi cosa nel gioco che non sia un TILE
+//OGGETTI
+//NEMICI
+//GIOCATORE
+//
+//creiamo delle classi per ogni entità
+//entity->creature (che estende la entity class)
+//creature->player, slime
+//entity->item
+//item->arrow, sword
+//
+//la classe entity contiene tutto ciò che le sottoclassi hanno in comune
+//le classi creature,item contengono tutto ciò che le sottoclassi hanno in comune
+//e così via
+//
+//
+//1. entity: posizione(x,y), tick, render
+//
+//2.creature: health(punti vita)
+//
+//3.player: texture, input(dall'utente)
+//
+//siccome la classe 3 è sottoclasse di 2 e così via 
+//prenderà via via gli attributi delle classi superiori
+//
+//questo si fa creando una nuova classe che usa extends per estendere la classe "madre"
 
 
 
