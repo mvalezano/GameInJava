@@ -8,6 +8,7 @@ import dev.codenmore.tilegame.display.Display;
 import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.ImageLoader;
 import dev.codenmore.tilegame.gfx.SpriteSheet;
+import dev.codenmore.tilegame.input.KeyManager;
 import dev.codenmore.tilegame.states.GameState;
 import dev.codenmore.tilegame.states.MenuState;
 import dev.codenmore.tilegame.states.State;
@@ -25,7 +26,7 @@ public class Game implements Runnable
 		private BufferStrategy bs;
 		private Graphics g;
 
-		//States
+		// States
 		private State gameState;
 		private State menuState;
 
@@ -33,22 +34,28 @@ public class Game implements Runnable
 		// private BufferedImage test; // carica spritesheet
 		// private SpriteSheet sheet;
 
+		
+		//Input
+		private KeyManager keyManager;
+
 		public Game(String title, int width, int height)
 			{
 				this.width = width;
 				this.height = height;
 				this.title = title;
+				keyManager= new KeyManager();
 //		run();
 			}
 
 		private void init()
 			{
 				display = new Display(title, width, height);
+				display.getFrame().addKeyListener(keyManager);
 				Assets.init();
-				
-				gameState= new GameState();
-                menuState= new MenuState();
-                State.setState(gameState);
+
+				gameState = new GameState(this);
+				menuState = new MenuState(this);
+				State.setState(gameState);
 				// testImage =
 				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\Prova.png");
 				// test =
@@ -56,13 +63,14 @@ public class Game implements Runnable
 				// sheet = new SpriteSheet(test);
 			}
 
-		//int x = 0;
+		// int x = 0;
 
 		private void tick()
 			{
-				//x += 1;
-				if(State.getState() !=null)
-                 State.getState().tick();    
+				// x += 1;
+				keyManager.tick();
+				if (State.getState() != null)
+					State.getState().tick();
 			}
 
 		private void render()
@@ -79,10 +87,10 @@ public class Game implements Runnable
 
 				// Draw Here!
 
-				if(State.getState() !=null)
-					State.getState().render(g);    
-				
-				//g.drawImage(Assets.stone, x, 10, null);
+				if (State.getState() != null)
+					State.getState().render(g);
+
+				// g.drawImage(Assets.stone, x, 10, null);
 				// g.drawImage(testImage, 20, 20, null); //prova
 				// g.drawImage(test, 0, 0, null); //spritesheet
 				// g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5, null);//primo quadrato
@@ -127,6 +135,9 @@ public class Game implements Runnable
 					}
 				stop();
 			}
+		public KeyManager getKeyManager() {
+			return keyManager;
+		}
 
 		public synchronized void start()
 			{
