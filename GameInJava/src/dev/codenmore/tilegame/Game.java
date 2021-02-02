@@ -135,6 +135,7 @@ public class Game implements Runnable
 					}
 				stop();
 			}
+		//getter
 		public KeyManager getKeyManager() {
 			return keyManager;
 		}
