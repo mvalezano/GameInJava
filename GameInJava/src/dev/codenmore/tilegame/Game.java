@@ -23,8 +23,8 @@ public class Game implements Runnable
 		private Graphics g;
 
 		// private BufferedImage testImage; //carica prova.png
-		//private BufferedImage test; // carica spritesheet
-		//private SpriteSheet sheet;
+		// private BufferedImage test; // carica spritesheet
+		// private SpriteSheet sheet;
 
 		public Game(String title, int width, int height)
 			{
@@ -38,16 +38,19 @@ public class Game implements Runnable
 			{
 				display = new Display(title, width, height);
 				Assets.init();
-				
-				
+
 				// testImage =
 				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\Prova.png");
-				//test = ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\SpriteSheet.png");
-				//sheet = new SpriteSheet(test);
+				// test =
+				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\SpriteSheet.png");
+				// sheet = new SpriteSheet(test);
 			}
+
+		int x = 0;
 
 		private void tick()
 			{
+				x += 1;
 
 			}
 
@@ -65,11 +68,11 @@ public class Game implements Runnable
 
 				// Draw Here!
 
-				g.drawImage(Assets.stone,10,10,null);
+				g.drawImage(Assets.stone, x, 10, null);
 				// g.drawImage(testImage, 20, 20, null); //prova
 				// g.drawImage(test, 0, 0, null); //spritesheet
-				//g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5, null);//primo quadrato
-				
+				// g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5, null);//primo quadrato
+
 				// stop here
 				bs.show();
 				g.dispose();
@@ -79,10 +82,34 @@ public class Game implements Runnable
 			{
 				init();
 
+				int fps = 60;
+				double timePerTick = 1000000000 / fps;// 10^9=nanosecondi
+				double delta = 0;
+				long now;
+				long lastTime = System.nanoTime();// restituisce il tempo in nanosec
+				long timer = 0;
+				int ticks = 0;
+
 				while (running)
 					{
-						tick();
-						render();
+						now = System.nanoTime();
+						delta += (now - lastTime) / timePerTick;
+						timer += now - lastTime;
+						lastTime = now;
+
+						if (delta >= 1)
+							{
+								tick();
+								render();
+								ticks++;
+								delta--;
+							}
+					}
+				if (timer >= 1000000000)
+					{
+						System.out.println("Ticks and Frames: " + ticks);
+						ticks = 0;
+						timer = 0;
 					}
 				stop();
 			}

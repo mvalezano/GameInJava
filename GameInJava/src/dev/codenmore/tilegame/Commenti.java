@@ -38,7 +38,12 @@
 //un botto di volte al secondo le immagini
 //quindi si fa in un altra maniera ;)
 //creiamo nuova classe Assets (contiene ogni img o suono o musica nel gioco)
-
+//
+//
+//video 10 game loop timer
+//si lavora in game->>tick
+//spiegazione fps per chi non sa
+//regolazione spostamento immagini
 
 
 
