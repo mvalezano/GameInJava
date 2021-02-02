@@ -28,4 +28,7 @@
 //		//(drawrect disegna un rettangolo,fillrect lo disegna pieno)	
 //	
 
-	
+
+//video 8
+//
+//	sprite sheet 128x128 pixel ogni quadrato 32x32 px
