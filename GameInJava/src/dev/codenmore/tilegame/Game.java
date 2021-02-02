@@ -5,6 +5,7 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 
 import dev.codenmore.tilegame.display.Display;
+import dev.codenmore.tilegame.gfx.Assets;
 import dev.codenmore.tilegame.gfx.ImageLoader;
 import dev.codenmore.tilegame.gfx.SpriteSheet;
 
@@ -22,8 +23,8 @@ public class Game implements Runnable
 		private Graphics g;
 
 		// private BufferedImage testImage; //carica prova.png
-		private BufferedImage test; // carica spritesheet
-		private SpriteSheet sheet;
+		//private BufferedImage test; // carica spritesheet
+		//private SpriteSheet sheet;
 
 		public Game(String title, int width, int height)
 			{
@@ -36,11 +37,13 @@ public class Game implements Runnable
 		private void init()
 			{
 				display = new Display(title, width, height);
+				Assets.init();
+				
+				
 				// testImage =
 				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\Prova.png");
-				test = ImageLoader
-						.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\SpriteSheet.png");
-				sheet = new SpriteSheet(test);
+				//test = ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\SpriteSheet.png");
+				//sheet = new SpriteSheet(test);
 			}
 
 		private void tick()
@@ -62,9 +65,10 @@ public class Game implements Runnable
 
 				// Draw Here!
 
+				g.drawImage(Assets.stone,10,10,null);
 				// g.drawImage(testImage, 20, 20, null); //prova
 				// g.drawImage(test, 0, 0, null); //spritesheet
-				g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5, null);//primo quadrato
+				//g.drawImage(sheet.crop(0, 0, 32, 32), 5, 5, null);//primo quadrato
 				
 				// stop here
 				bs.show();

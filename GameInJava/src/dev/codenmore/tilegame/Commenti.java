@@ -32,3 +32,33 @@
 //video 8
 //
 //	sprite sheet 128x128 pixel ogni quadrato 32x32 px
+// crop immagini
+//video 9
+//problema con il tick/render: ritaglia e croppa 
+//un botto di volte al secondo le immagini
+//quindi si fa in un altra maniera ;)
+//creiamo nuova classe Assets (contiene ogni img o suono o musica nel gioco)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
