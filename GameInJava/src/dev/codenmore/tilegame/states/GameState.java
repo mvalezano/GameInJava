@@ -18,7 +18,10 @@ public class GameState extends State
 			{
 				super(game);
 				player = new Player(game, 100, 100);
-				world = new World("res/worlds/world1.txt");
+				world = new World(game, "res/worlds/world1.txt");
+			
+			//game.getGameCamera().move(0,0);
+			
 			}
 
 		@Override
@@ -26,6 +29,7 @@ public class GameState extends State
 			{
 				world.tick();
 				player.tick();
+				//game.getGameCamera().move(1, 1);
 
 			}
 

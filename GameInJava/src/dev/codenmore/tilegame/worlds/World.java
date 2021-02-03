@@ -2,19 +2,22 @@ package dev.codenmore.tilegame.worlds;
 
 import java.awt.Graphics;
 
+import dev.codenmore.tilegame.Game;
 import dev.codenmore.tilegame.tiles.Tile;
 import dev.codenmore.tilegame.utils.Utils;
 
 public class World
 	{
-
+private Game game;
 		private int width, height;
 		private int spawnX, spawnY;
 		private int[][] tiles;
 
-		public World(String path)
+		public World(Game game,String path)
 			{
+				this.game=game;
 				loadWorld(path);
+		
 			}
 
 		public void tick()
@@ -28,7 +31,8 @@ public class World
 					{
 						for (int x = 0; x < width; x++)
 							{
-								getTile(x, y).render(g, x * Tile.TILEWIDTH, y * Tile.TILEHEIGHT);
+								getTile(x, y).render(g, (int)(x * Tile.TILEWIDTH -game.getGameCamera().getxOffset()),
+										(int) (y * Tile.TILEHEIGHT -game.getGameCamera().getyOffset()));
 							}
 					}
 			}

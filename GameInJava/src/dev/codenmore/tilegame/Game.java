@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 
 import dev.codenmore.tilegame.display.Display;
 import dev.codenmore.tilegame.gfx.Assets;
+import dev.codenmore.tilegame.gfx.GameCamera;
 import dev.codenmore.tilegame.gfx.ImageLoader;
 import dev.codenmore.tilegame.gfx.SpriteSheet;
 import dev.codenmore.tilegame.input.KeyManager;
@@ -17,12 +18,12 @@ public class Game implements Runnable
 	{
 
 		private Display display;
-		public int width, height;
+		private int width, height;
+		public String title;
 
 		private boolean running = false;
 		private Thread thread;
-		public String title;
-
+		
 		private BufferStrategy bs;
 		private Graphics g;
 
@@ -34,16 +35,19 @@ public class Game implements Runnable
 		// private BufferedImage test; // carica spritesheet
 		// private SpriteSheet sheet;
 
-		
-		//Input
+		// Input
 		private KeyManager keyManager;
+
+		// Camera
+
+		private GameCamera gameCamera;
 
 		public Game(String title, int width, int height)
 			{
 				this.width = width;
 				this.height = height;
 				this.title = title;
-				keyManager= new KeyManager();
+				keyManager = new KeyManager();
 //		run();
 			}
 
@@ -52,6 +56,8 @@ public class Game implements Runnable
 				display = new Display(title, width, height);
 				display.getFrame().addKeyListener(keyManager);
 				Assets.init();
+
+				gameCamera = new GameCamera(this, 0, 0);
 
 				gameState = new GameState(this);
 				menuState = new MenuState(this);
@@ -130,16 +136,32 @@ public class Game implements Runnable
 							{
 								System.out.println("Ticks and Frames: " + ticks);
 								ticks = 0;
-								timer = 0;}
-				
+								timer = 0;
+							}
+
 					}
 				stop();
 			}
-		//getter
-		public KeyManager getKeyManager() {
-			return keyManager;
-		}
 
+		// getter
+		public KeyManager getKeyManager()
+			{
+				return keyManager;
+			}
+
+		public GameCamera getGameCamera() {
+			return gameCamera;
+		}
+		
+		public int getWidth() {
+			return width;
+		}
+		
+		public int getHeight() {
+			return height;
+		}
+		
+	
 		public synchronized void start()
 			{
 				if (running)
