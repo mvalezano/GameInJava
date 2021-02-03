@@ -46,7 +46,7 @@
 //regolazione spostamento immagini
 //
 //controllare fps: game.java riga 110->>
-//non riesco a vederlo sulla console!!
+//non riesco a vederlo sulla console!!agg sbagliat a posizione 
 //
 //
 //

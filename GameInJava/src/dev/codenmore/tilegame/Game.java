@@ -126,12 +126,12 @@ public class Game implements Runnable
 								ticks++;
 								delta--;
 							}
-					}
-				if (timer >= 1000000000)
-					{
-						System.out.println("Ticks and Frames: " + ticks);
-						ticks = 0;
-						timer = 0;
+						if (timer >= 1000000000)
+							{
+								System.out.println("Ticks and Frames: " + ticks);
+								ticks = 0;
+								timer = 0;}
+				
 					}
 				stop();
 			}
