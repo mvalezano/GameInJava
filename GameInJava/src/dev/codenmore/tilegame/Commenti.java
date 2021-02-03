@@ -83,7 +83,21 @@
 //prenderà via via gli attributi delle classi superiori
 //
 //questo si fa creando una nuova classe che usa extends per estendere la classe "madre"
-
+//
+//
+//video 18 loading worlds
+//
+//Schema per il mondo
+//
+//5 7 -----------------------larghezza x altezza
+//0 0------------------------spawnpoint x,y
+//0 0 0 0 0------------------fila d'erba (ammoniacata)
+//1 1 1 1 1------------------fila di terra
+//2 2 2 2 2 -----------------fila di roccia
+//0 0 0 0 0------------------ancora erba (di aziz)
+//0 1 2 0 0------------------erba fumo sasso erba erba
+//0 0 0 0 0------------------erba libbbera
+//0 0 0 0 0------------------ganjone
 
 
 
