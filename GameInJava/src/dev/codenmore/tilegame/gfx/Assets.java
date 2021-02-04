@@ -10,7 +10,7 @@ public class Assets
 		public static void init()
 			{
 				SpriteSheet sheet = new SpriteSheet(ImageLoader
-						.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\SpriteSheet.png"));
+						.loadImage("res/textures/SpriteSheet.png"));
 
 				player = sheet.crop(0, 0, width, height);
 				dirt = sheet.crop(width, 0, width, height);
