@@ -23,7 +23,7 @@ public class Game implements Runnable
 
 		private boolean running = false;
 		private Thread thread;
-		
+
 		private BufferStrategy bs;
 		private Graphics g;
 
@@ -42,6 +42,9 @@ public class Game implements Runnable
 
 		private GameCamera gameCamera;
 
+		// Handler
+		private Handler handler;
+
 		public Game(String title, int width, int height)
 			{
 				this.width = width;
@@ -58,9 +61,10 @@ public class Game implements Runnable
 				Assets.init();
 
 				gameCamera = new GameCamera(this, 0, 0);
-
-				gameState = new GameState(this);
-				menuState = new MenuState(this);
+				handler = new Handler(this);
+				
+				gameState = new GameState(handler);
+				menuState = new MenuState(handler);
 				State.setState(gameState);
 				// testImage =
 				// ImageLoader.loadImage("C:\\Users\\bra\\git\\GameInJava\\GameInJava\\res\\textures\\Prova.png");
@@ -149,19 +153,21 @@ public class Game implements Runnable
 				return keyManager;
 			}
 
-		public GameCamera getGameCamera() {
-			return gameCamera;
-		}
-		
-		public int getWidth() {
-			return width;
-		}
-		
-		public int getHeight() {
-			return height;
-		}
-		
-	
+		public GameCamera getGameCamera()
+			{
+				return gameCamera;
+			}
+
+		public int getWidth()
+			{
+				return width;
+			}
+
+		public int getHeight()
+			{
+				return height;
+			}
+
 		public synchronized void start()
 			{
 				if (running)
