@@ -2,8 +2,10 @@ package dev.codenmore.tilegame;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import dev.codenmore.tilegame.display.Display;
+import dev.codenmore.tilegame.gfx.ImageLoader;
 
 public class Game implements Runnable {
 
@@ -16,6 +18,8 @@ public class Game implements Runnable {
 
 	private BufferStrategy bs;
 	private Graphics g;
+	
+	private BufferedImage testImage;
 
 	public Game(String title, int width, int height) {
 		this.width = width;
@@ -26,6 +30,7 @@ public class Game implements Runnable {
 
 	private void init() {
 		display = new Display(title, width, height);
+		testImage=ImageLoader.loadImage("/textures/test.png");
 
 	}
 
